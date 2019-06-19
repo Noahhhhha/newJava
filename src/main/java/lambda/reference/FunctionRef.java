@@ -2,8 +2,10 @@ package lambda.reference;
 
 import org.junit.Test;
 
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * 方法引用，原先lambda表达式的地方直接写入别人写好的方法 ::
@@ -17,8 +19,11 @@ public class FunctionRef {
      * 注意：
      *      若Lambda 的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，格式： ClassName::MethodName
      */
-
-
+    @Test
+    public void test4(){
+        BiPredicate<String,String> predicate = (x,y) -> x.equals(y);
+        BiPredicate<String,String> biPredicate = String::equals;
+    }
     /**
      * 类名::静态方法名
      */
