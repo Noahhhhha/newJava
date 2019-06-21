@@ -6,6 +6,7 @@ public class Employer {
 
     private String name;
     private Integer age;
+    private Status status;
 
     public Employer() {
     }
@@ -17,6 +18,12 @@ public class Employer {
     public Employer(String name, Integer age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Employer(String name, Integer age, Status status) {
+        this.name = name;
+        this.age = age;
+        this.status = status;
     }
 
     public String getName() {
@@ -35,13 +42,7 @@ public class Employer {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Employer{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -55,5 +56,29 @@ public class Employer {
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Employer{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", status=" + status +
+                '}';
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    //有点像内部类
+    public enum Status{
+        BUSY,
+        FREE,
+        VOCATION
     }
 }
